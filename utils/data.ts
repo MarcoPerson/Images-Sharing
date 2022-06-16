@@ -1,0 +1,45 @@
+import { ImageType, CommentType } from "../interfaces";
+
+export const allImagesData : ImageType[] = [
+    {id: 1, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 2, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 3, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 4, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 5, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 6, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 7, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 8, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 9, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 10, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 11, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 12, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 13, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 14, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 15, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 16, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 17, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 18, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 19, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 20, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 21, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 22, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 23, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 24, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 25, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"},
+    {id: 26, name:"pretty", public_id:"https://th.bing.com/th/id/OIP.4XB8NF1awQyApnQDDmBmQwHaEo?pid=ImgDet&rs=1"}
+]
+
+export const allCommentsData : CommentType[] = [
+    {id:1, imageId:1, userName:"Marco", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:2, imageId:2, userName:"Marco", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:3, imageId:1, userName:"Glad", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:4, imageId:2, userName:"Glad", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:5, imageId:1, userName:"Bill", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:6, imageId:2, userName:"Bill", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:7, imageId:1, userName:"Dani", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:8, imageId:2, userName:"Dani", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:9, imageId:1, userName:"Joseph", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:10, imageId:2, userName:"Joseph", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:11, imageId:1, userName:"Kawtar", comment:"Je viens de commenter", date: new Date().toDateString()},
+    {id:12, imageId:2, userName:"Kawtar", comment:"Je viens de commenter", date: new Date().toDateString()},
+]
