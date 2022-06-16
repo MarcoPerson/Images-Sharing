@@ -1,0 +1,12 @@
+{
+  "0": {
+    "id": 0,
+    "name": "Mamama",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655382417/MyMedia/ImageSharingApp/nxyvtuq3u2mlmdflrktv.png"
+  },
+  "1": {
+    "id": 1,
+    "name": "Mamama",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655382842/MyMedia/ImageSharingApp/sqkd20hxjzvzughstedc.png"
+  }
+}

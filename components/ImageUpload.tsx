@@ -1,32 +1,56 @@
 import React from "react";
-import { Button, Form, Input, Upload, message} from "antd";
-import type { UploadProps } from 'antd';
+import { Button, Form, Input, Upload, message } from "antd";
+import type { UploadProps } from "antd";
 
-import {UploadOutlined} from '@ant-design/icons'
+import { UploadOutlined } from "@ant-design/icons";
+
+import { mediauploader } from "../utils/mediauploader";
+import { ImageType } from "../interfaces";
 
 type Props = {};
 
 const props: UploadProps = {
-    name: 'file',
-    action: '',
-    headers: {
-      authorization: 'authorization-text',
-    },
-    onChange(info) {
-      if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-      }
-    },
-  };
+  name: "file",
+  action: "",
+  headers: {
+    authorization: "authorization-text",
+  },
+  onChange(info) {
+    if (info.file.status === "error") {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
 
 export default function ImageUpload({}: Props) {
-  const onFinish = (values : any) => {
-    message.success(`${values.picname} file uploaded successfully`);
-    console.log("Success:", values);
+  const onFinish = async (values: any) => {
+    let file = new File(
+      [values.upload.fileList[0].originFileObj],
+      values.picname
+    );
+    console.log("Success:", file);
 
+    const mylink = await mediauploader(file).then((links) => links[0]);
+    console.log(mylink);
+
+    let newImage: ImageType = { id: 0, name: file.name, public_id: mylink };
+    let imageJSON = JSON.stringify(newImage);
+
+    const id = await fetch("http://localhost:3000/api/add", {
+      method: "POST",
+      body: imageJSON,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": " application/json",
+      },
+    });
+
+    const idn = await id.json();
+    console.log(idn);
+    message.success(`${values.picname} file uploaded successfully`);
   };
 
-  const onFinishFailed = (errorInfo : any) => {
+  const onFinishFailed = (errorInfo: any) => {
     message.error(`Please fill all the required zone`);
     console.log("Failed:", errorInfo);
   };
@@ -65,11 +89,11 @@ export default function ImageUpload({}: Props) {
         label="Upload"
         extra="Picture Only"
         rules={[
-            {
-              required: true,
-              message: "Please select a picture!",
-            },
-          ]}
+          {
+            required: true,
+            message: "Please select a picture!",
+          },
+        ]}
       >
         <Upload {...props} listType="picture">
           <Button icon={<UploadOutlined />}>Click to upload</Button>
