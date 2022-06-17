@@ -1,4 +1,4 @@
-import type { GetStaticProps } from 'next'
+import type { GetServerSideProps } from 'next'
 import styles from '../styles/Home.module.css'
 
 import { ImageType } from '../interfaces'
@@ -22,7 +22,7 @@ const Home = ({items}:Props) => {
   )
 }
 
-export const getStaticProps : GetStaticProps = async () => {
+export const getServerSideProps : GetServerSideProps = async () => {
   const data = await fetch("http://localhost:3000/api/get");
   const itemsJSon = await data.json();
   const items: ImageType[] = itemsJSon.data;

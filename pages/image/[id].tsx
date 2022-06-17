@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetServerSideProps, GetStaticPaths } from "next";
 import React from "react";
 import "antd/dist/antd.css";
 
@@ -19,18 +19,18 @@ export default function ImageView({ data, comments }: Props) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const dataFetch = await fetch("http://localhost:3000/api/get");
-  const itemsJSon = await dataFetch.json();
-  const items: ImageType[] = itemsJSon.data;
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const dataFetch = await fetch("http://localhost:3000/api/get");
+//   const itemsJSon = await dataFetch.json();
+//   const items: ImageType[] = itemsJSon.data;
 
-  const paths = items.map((item) => ({
-    params: { id: item.id.toString() },
-  }));
-  return { paths, fallback: false };
-};
+//   const paths = items.map((item) => ({
+//     params: { id: item.id.toString() },
+//   }));
+//   return { paths, fallback: false };
+// };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   let id: number = 0;
   let defaultImage: ImageType = { id: 0, name: "", public_id: "", username: "", date:"" };
   if (params && params.id && typeof params.id === "string") {
