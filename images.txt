@@ -1,12 +1,44 @@
 {
   "0": {
     "id": 0,
-    "name": "Mamama",
-    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655382417/MyMedia/ImageSharingApp/nxyvtuq3u2mlmdflrktv.png"
+    "name": "Screen",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655391669/MyMedia/ImageSharingApp/lrmhjraofyknphxk0snb.png"
   },
   "1": {
     "id": 1,
-    "name": "Mamama",
-    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655382842/MyMedia/ImageSharingApp/sqkd20hxjzvzughstedc.png"
+    "name": "Nature",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655393103/MyMedia/ImageSharingApp/gemaqchlir1uoodvl2ee.jpg"
+  },
+  "2": {
+    "id": 2,
+    "name": "Swedish Study",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655454203/MyMedia/ImageSharingApp/pad0uqorvq7o3g623sep.jpg"
+  },
+  "3": {
+    "id": 3,
+    "name": "Nature and Sea",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655455434/MyMedia/ImageSharingApp/jga2tw4daf1lvxroovsd.jpg"
+  },
+  "4": {
+    "id": 4,
+    "name": "Beautiful Landscape",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655455471/MyMedia/ImageSharingApp/dwnhssvtlvga4hdkf1tb.jpg"
+  },
+  "5": {
+    "id": 5,
+    "name": "Cygne",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655455486/MyMedia/ImageSharingApp/blk95ea1e5wvx3az0hit.jpg"
+  },
+  "6": {
+    "id": 6,
+    "name": "Sun Rise",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655455683/MyMedia/ImageSharingApp/rf7qwuqimmuwasuedijz.jpg"
+  },
+  "7": {
+    "id": 7,
+    "name": "Landscape",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655457143/MyMedia/ImageSharingApp/t3ikttelouscxy5lecsn.jpg",
+    "username": "Marco",
+    "date": "Fri Jun 17 2022 11:12:24 GMT+0200"
   }
 }

@@ -1,7 +1,9 @@
 export type ImageType = {
     id: number,
     name: string,
-    public_id: string
+    public_id: string,
+    username: string,
+    date: string
 }
 
 export type CommentType = {

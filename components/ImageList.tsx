@@ -11,7 +11,7 @@ export default function ImageList({ items }: Props) {
     <div>
       <Row gutter={[16, 16]}>
         {items.map((item) => (
-          <Col key={item.id} span={8}>
+          <Col style={{height:"300px", overflow:"hidden", display: "flex", justifyContent:"center"}} key={item.id} xs={24} sm={12} md={8} lg={6}>
             <ImageItem data={item} />
           </Col>
         ))}

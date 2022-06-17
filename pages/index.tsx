@@ -26,7 +26,6 @@ export const getStaticProps : GetStaticProps = async () => {
   const data = await fetch("http://localhost:3000/api/get");
   const itemsJSon = await data.json();
   const items: ImageType[] = itemsJSon.data;
-  console.log(items)
   return {props : {items}}
 }
 

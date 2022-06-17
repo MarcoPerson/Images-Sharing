@@ -11,7 +11,7 @@ export default function ImageItem({data}: Props) {
     <div>
         <Link href="/image/[id]" as={`/image/${data.id}`}>
         <a>
-            <Image preview={false} src={data.public_id} alt={data.name}></Image>
+            <Image height="100%" preview={false} src={data.public_id} alt={data.name}></Image>
         </a>
         </Link>
     </div>

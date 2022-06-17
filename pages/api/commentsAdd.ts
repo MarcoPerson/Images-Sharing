@@ -12,8 +12,8 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   //Get all user from a file
-  fs.appendFileSync("./images.txt", "");
-  const myData = fs.readFileSync("./images.txt").toString("utf-8");
+  fs.appendFileSync("./comments.txt", "");
+  const myData = fs.readFileSync("./comments.txt").toString("utf-8");
   const myJson = JSON.parse(myData);
 
   //Get the request message
@@ -23,7 +23,7 @@ export default function handler(
   const endPosition = Object.keys(myJson).length;
   data.id = endPosition;
   let newJSON = { ...myJson, [endPosition]: data };
-  fs.writeFileSync("./images.txt", JSON.stringify(newJSON, null, 2));
+  fs.writeFileSync("./comments.txt", JSON.stringify(newJSON, null, 2));
 
   //Send a successful or error response
   res.status(200).json({

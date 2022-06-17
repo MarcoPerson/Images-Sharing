@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Form, Input, Upload, message } from "antd";
 import type { UploadProps } from "antd";
+import moment from 'moment'
+import { useAppContext } from "../context/AppContext";
 
 import { UploadOutlined } from "@ant-design/icons";
 
@@ -23,6 +25,8 @@ const props: UploadProps = {
 };
 
 export default function ImageUpload({}: Props) {
+  const [form] = Form.useForm()
+  const {name, setName} = useAppContext()
   const onFinish = async (values: any) => {
     let file = new File(
       [values.upload.fileList[0].originFileObj],
@@ -33,7 +37,7 @@ export default function ImageUpload({}: Props) {
     const mylink = await mediauploader(file).then((links) => links[0]);
     console.log(mylink);
 
-    let newImage: ImageType = { id: 0, name: file.name, public_id: mylink };
+    let newImage: ImageType = { id: 0, name: file.name, public_id: mylink, username: name, date:moment().toString() };
     let imageJSON = JSON.stringify(newImage);
 
     const id = await fetch("http://localhost:3000/api/add", {
@@ -45,8 +49,7 @@ export default function ImageUpload({}: Props) {
       },
     });
 
-    const idn = await id.json();
-    console.log(idn);
+    form.resetFields()
     message.success(`${values.picname} file uploaded successfully`);
   };
 
@@ -57,7 +60,8 @@ export default function ImageUpload({}: Props) {
 
   return (
     <Form
-      name="basic"
+      name="Upload Form"
+      form={form}
       labelCol={{
         span: 4,
       }}
