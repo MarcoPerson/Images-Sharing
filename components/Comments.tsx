@@ -95,7 +95,7 @@ export default function Comments({ data, comments }: Props) {
           name="comment"
           rules={[{ required: true, message: "Please write a comment!" }]}
         >
-          <TextArea id="textComment" rows={4} />
+          <TextArea id="textComment" rows={3} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
