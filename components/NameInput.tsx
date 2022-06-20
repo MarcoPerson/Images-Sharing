@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, message } from "antd";
+import { Button, message, Form, Input } from "antd";
 import "antd/dist/antd.css";
 import { useAppContext } from "../context/AppContext";
 import Head from "next/head";
@@ -8,13 +8,13 @@ type Props = {};
 
 export default function NameInput({}: Props) {
   const { name, setName } = useAppContext();
-  const handler = async () => {
-    try {
-      setName(prompt("Enter Your Name") || "");
-    } catch (e) {
-      message.error("Please enter name");
-    }
+  const handler = (values : any) => {
+    setName(values.username);
   };
+
+  const onFinishFailed = () => {
+    message.error("Please enter your name");
+  }
   return (
     <div
       style={{
@@ -29,7 +29,44 @@ export default function NameInput({}: Props) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Button onClick={handler}>Set Your Name To Enter The App</Button>
+      <Form
+        name="Name Form"
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={handler}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item
+          label="Your Name"
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: "Please input a name to enter the App!",
+            },
+          ]}
+        >
+          <Input placeholder="Enter your name" />
+        </Form.Item>
+        <Form.Item
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      >
+        <Button type="primary" htmlType="submit">
+       Enter
+        </Button>
+      </Form.Item>
+      </Form>
     </div>
   );
 }

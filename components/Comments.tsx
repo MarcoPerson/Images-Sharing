@@ -21,8 +21,8 @@ export default function Comments({ data, comments }: Props) {
     avatar: "https://joeschmoe.io/api/v1/random",
     content: <p>{item.comment}</p>,
     datetime: (
-      <Tooltip title={item.date}>
-        <span>{item.date}</span>
+      <Tooltip title={moment(item.date).format('YYYY-MM-DD HH:mm:ss')}>
+        <span>{moment(item.date).fromNow()}</span>
       </Tooltip>
     ),
   }));

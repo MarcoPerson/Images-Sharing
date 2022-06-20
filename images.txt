@@ -40,5 +40,40 @@
     "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655457143/MyMedia/ImageSharingApp/t3ikttelouscxy5lecsn.jpg",
     "username": "Marco",
     "date": "Fri Jun 17 2022 11:12:24 GMT+0200"
+  },
+  "8": {
+    "id": 8,
+    "name": "Stephen Curry",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655475478/MyMedia/ImageSharingApp/swou8o9hnn1ntbsr6mpp.jpg",
+    "username": "Merveilles",
+    "date": "Fri Jun 17 2022 16:18:04 GMT+0200"
+  },
+  "9": {
+    "id": 9,
+    "name": "ScreenShot",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655485196/MyMedia/ImageSharingApp/lt6xmihqjgzx1usc78k0.png",
+    "username": "Marc",
+    "date": "Fri Jun 17 2022 18:59:58 GMT+0200"
+  },
+  "10": {
+    "id": 10,
+    "name": "Draymond to KD",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655485543/MyMedia/ImageSharingApp/ubcweje3bvbw77rvumcr.jpg",
+    "username": "Dani",
+    "date": "Fri Jun 17 2022 19:05:48 GMT+0200"
+  },
+  "11": {
+    "id": 11,
+    "name": "Hahaahha",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655709720/MyMedia/ImageSharingApp/jsccrgli3eiorvtwxeiw.png",
+    "username": "Marc",
+    "date": "Mon Jun 20 2022 09:22:00 GMT+0200"
+  },
+  "12": {
+    "id": 12,
+    "name": "Marco Desktop",
+    "public_id": "http://res.cloudinary.com/dzp8kuhzh/image/upload/v1655717386/MyMedia/ImageSharingApp/dnnhvcitlo63mrmntokf.png",
+    "username": "Marco",
+    "date": "Mon Jun 20 2022 11:29:46 GMT+0200"
   }
 }

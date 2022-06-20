@@ -28,7 +28,7 @@ export function AppWrapper({ children }: Props) {
     if (localStorage.getItem("name")) {
       setName(localStorage.getItem("name") || "");
     }
-  }, []);
+  }, []);  
 
   useEffect(() => {
     if (name) {

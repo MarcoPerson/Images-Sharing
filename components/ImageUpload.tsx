@@ -17,11 +17,6 @@ const props: UploadProps = {
   headers: {
     authorization: "authorization-text",
   },
-  onChange(info) {
-    if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
 };
 
 export default function ImageUpload({}: Props) {
@@ -99,7 +94,7 @@ export default function ImageUpload({}: Props) {
           },
         ]}
       >
-        <Upload {...props} listType="picture">
+        <Upload {...props} beforeUpload={() => false} listType="picture">
           <Button icon={<UploadOutlined />}>Click to upload</Button>
         </Upload>
       </Form.Item>
