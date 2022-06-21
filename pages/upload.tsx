@@ -18,9 +18,6 @@ type Props = {};
 
 const Home = ({}:Props) => {
   const {name, setName} = useAppContext()
-  useEffect(() => {
-    console.log(process.env.APIpath)
-  }, [])
   return (
    <>
    {!name ? <NameInput /> : <Layout title='Upload Page' selected='upload'><ImageUpload /></Layout>}
