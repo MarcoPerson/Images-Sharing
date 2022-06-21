@@ -22,8 +22,8 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   //Get all user from a file
-  fs.appendFileSync('./tmp/images.txt', '');
-  const myData = fs.readFileSync('./tmp/images.txt').toString('utf-8');
+  fs.appendFileSync('./images.txt', '');
+  const myData = fs.readFileSync('./images.txt').toString('utf-8');
   const myJson = JSON.parse(myData);
 
   //Get the request message
