@@ -23,7 +23,7 @@ const Home = ({items}:Props) => {
 }
 
 export const getServerSideProps : GetServerSideProps = async () => {
-  const data = await fetch("http://localhost:3000/api/get");
+  const data = await fetch("https://images-sharing.vercel.app/api/get");
   const itemsJSon = await data.json();
   const items: ImageType[] = itemsJSon.data;
   return {props : {items}}

@@ -20,7 +20,7 @@ export default function ImageView({ data, comments }: Props) {
 }
 
 // export const getStaticPaths: GetStaticPaths = async () => {
-//   const dataFetch = await fetch("http://localhost:3000/api/get");
+//   const dataFetch = await fetch("https://images-sharing.vercel.app/api/get");
 //   const itemsJSon = await dataFetch.json();
 //   const items: ImageType[] = itemsJSon.data;
 
@@ -37,13 +37,13 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     id = parseInt(params.id);
   }
 
-  const dataFetch = await fetch("http://localhost:3000/api/get");
+  const dataFetch = await fetch("https://images-sharing.vercel.app/api/get");
   var itemsJSon = await dataFetch.json();
   const items: ImageType[] = itemsJSon.data;
 
   const data: ImageType = items.find((item) => item.id == id) || defaultImage;
 
-  const commentFetch = await fetch("http://localhost:3000/api/commentsGet");
+  const commentFetch = await fetch("https://images-sharing.vercel.app/api/commentsGet");
   itemsJSon = await commentFetch.json();
   const comments: CommentType[] = itemsJSon.data;
   return { props: { data, comments } };

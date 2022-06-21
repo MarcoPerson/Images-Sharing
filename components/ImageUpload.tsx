@@ -35,7 +35,7 @@ export default function ImageUpload({}: Props) {
     let newImage: ImageType = { id: 0, name: file.name, public_id: mylink, username: name, date:moment().toString() };
     let imageJSON = JSON.stringify(newImage);
 
-    const id = await fetch("http://localhost:3000/api/add", {
+    const id = await fetch("https://images-sharing.vercel.app/api/add", {
       method: "POST",
       body: imageJSON,
       headers: {

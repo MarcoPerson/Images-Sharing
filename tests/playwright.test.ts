@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("MySharingApp", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("http://localhost:3000/");
+    await page.goto("https://images-sharing.vercel.app/");
     await page.locator('[placeholder="Enter your name"]').click();
     await page.locator('[placeholder="Enter your name"]').fill("Marco");
     await page.locator('button:has-text("Enter")').click();

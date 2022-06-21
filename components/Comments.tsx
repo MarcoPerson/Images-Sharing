@@ -39,7 +39,7 @@ export default function Comments({ data, comments }: Props) {
 
     let commentJSON = JSON.stringify(commentData);
 
-    const id = await fetch("http://localhost:3000/api/commentsAdd", {
+    const id = await fetch("https://images-sharing.vercel.app/api/commentsAdd", {
       method: "POST",
       body: commentJSON,
       headers: {
@@ -50,7 +50,7 @@ export default function Comments({ data, comments }: Props) {
     form.resetFields()
     message.success(`Thanks ${name}, for your comment`);
 
-    const commentFetch = await fetch("http://localhost:3000/api/commentsGet");
+    const commentFetch = await fetch("https://images-sharing.vercel.app/api/commentsGet");
     const itemsJSon = await commentFetch.json();
 
     setCommentsChanges(itemsJSon.data);
