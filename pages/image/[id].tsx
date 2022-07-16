@@ -32,7 +32,7 @@ export default function ImageView({ data, comments }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   let id: number = 0;
-  let defaultImage: ImageType = { id: 0, name: "", public_id: "", username: "", date:"" };
+  let defaultImage: ImageType = { id: NaN, name: "", public_id: "", username: "", date:"" };
   if (params && params.id && typeof params.id === "string") {
     id = parseInt(params.id);
   }
