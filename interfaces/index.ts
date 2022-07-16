@@ -1,15 +1,15 @@
 export type ImageType = {
-    id: number,
-    name: string,
-    public_id: string,
-    username: string,
-    date: string
-}
+  id: number;
+  name: string;
+  public_url: string;
+  username: string;
+  date: string;
+};
 
 export type CommentType = {
-    id: number,
-    imageId: number,
-    userName : string,
-    comment : string,
-    date: string
-}
+  id: number;
+  image_id: number;
+  username: string;
+  comment: string;
+  date: string;
+};

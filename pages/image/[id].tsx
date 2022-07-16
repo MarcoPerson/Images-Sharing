@@ -3,8 +3,8 @@ import React from "react";
 import "antd/dist/antd.css";
 
 import { ImageType, CommentType } from "../../interfaces";
-import Layout from "../../components/Layout";
-import ImageDetail from "../../components/ImageDetail";
+import Layout from "../../components/Layout/Layout";
+import ImageDetail from "../../components/ImageDetails/ImageDetail";
 
 type Props = {
   data: ImageType;
@@ -32,7 +32,7 @@ export default function ImageView({ data, comments }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   let id: number = 0;
-  let defaultImage: ImageType = { id: NaN, name: "", public_id: "", username: "", date:"" };
+  let defaultImage: ImageType = { id: NaN, name: "", public_url: "", username: "", date: "" };
   if (params && params.id && typeof params.id === "string") {
     id = parseInt(params.id);
   }

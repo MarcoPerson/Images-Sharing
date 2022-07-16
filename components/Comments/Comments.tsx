@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Comment, List, Tooltip, Button, Form, Input, message } from "antd";
-import { ImageType, CommentType } from "../interfaces";
-import { useAppContext } from "../context/AppContext";
+import { ImageType, CommentType } from "../../interfaces";
+import { useAppContext } from "../../context/AppContext";
 import moment from "moment";
 
 const { TextArea } = Input;
@@ -13,11 +13,11 @@ export default function Comments({ data, comments }: Props) {
   const [commentsChanges, setCommentsChanges] = useState(comments)
 
   const id = data.id;
-  const thisImageComments = commentsChanges.filter((item) => item.imageId == id);
+  const thisImageComments = commentsChanges.filter((item) => item.image_id == id);
 
   const datas = thisImageComments.map((item) => ({
     actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: item.userName,
+    author: item.username,
     avatar: "https://joeschmoe.io/api/v1/random",
     content: <p>{item.comment}</p>,
     datetime: (
@@ -31,8 +31,8 @@ export default function Comments({ data, comments }: Props) {
     const comment = values.comment;
     const commentData: CommentType = {
       id: 0,
-      imageId: data.id,
-      userName: name,
+      image_id: data.id,
+      username: name,
       comment: comment,
       date: moment().toString(),
     };

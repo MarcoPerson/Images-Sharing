@@ -2,12 +2,12 @@ import React from "react";
 import { Button, Form, Input, Upload, message } from "antd";
 import type { UploadProps } from "antd";
 import moment from 'moment'
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../../context/AppContext";
 
 import { UploadOutlined } from "@ant-design/icons";
 
-import { mediauploader } from "../utils/mediauploader";
-import { ImageType } from "../interfaces";
+import { mediauploader } from "../../utils/mediauploader";
+import { ImageType } from "../../interfaces";
 
 type Props = {};
 
@@ -19,9 +19,9 @@ const props: UploadProps = {
   },
 };
 
-export default function ImageUpload({}: Props) {
+export default function ImageUpload({ }: Props) {
   const [form] = Form.useForm()
-  const {name, setName} = useAppContext()
+  const { name, setName } = useAppContext()
   const onFinish = async (values: any) => {
     let file = new File(
       [values.upload.fileList[0].originFileObj],
@@ -32,7 +32,7 @@ export default function ImageUpload({}: Props) {
     const mylink = await mediauploader(file).then((links) => links[0]);
     console.log(mylink);
 
-    let newImage: ImageType = { id: 0, name: file.name, public_id: mylink, username: name, date:moment().toString() };
+    let newImage: ImageType = { id: 0, name: file.name, public_url: mylink, username: name, date: moment().toString() };
     let imageJSON = JSON.stringify(newImage);
 
     const id = await fetch("https://images-sharing.vercel.app/api/add", {
