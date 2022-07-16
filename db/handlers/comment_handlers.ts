@@ -1,11 +1,11 @@
-import { CommentModel } from "../model/comment";
+import { CommentModel } from "../models/comment_model";
 
 const getAllComments = async () => {
   const comments = await CommentModel.find({});
   return comments;
 };
 
-const getImageComments = async (image_id: string) => {
+const getImageComments = async (image_id: any) => {
   const comments = await CommentModel.find({ image_id: image_id });
   return comments;
 };

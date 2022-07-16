@@ -1,15 +1,15 @@
 import { mongoose } from "../connexion";
 
-let imageSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  public_url: {
-    type: String,
+let commentSchema = new mongoose.Schema({
+  image_id: {
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
   username: {
+    type: String,
+    required: true,
+  },
+  comment: {
     type: String,
     required: true,
   },
@@ -18,11 +18,10 @@ let imageSchema = new mongoose.Schema({
     required: true,
   },
   date: {
-    type: String,
+    type: Date,
     required: true,
   },
 });
 
-const ImageModel = mongoose.model("Image", imageSchema);
-
-export { ImageModel };
+export const CommentModel =
+  mongoose.models.Comment || mongoose.model("Comment", commentSchema);
