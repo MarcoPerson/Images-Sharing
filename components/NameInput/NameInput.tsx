@@ -1,15 +1,26 @@
-import React from "react";
-import { Button, message, Form, Input } from "antd";
+import React, { useState } from "react";
+import { Button, message, Form, Input, RadioChangeEvent, Radio } from "antd";
 import "antd/dist/antd.css";
 import { useAppContext } from "../../context/AppContext";
 import Head from "next/head";
+import { profile_images } from '../../utils/profileImages'
 
 type Props = {};
 
 export default function NameInput({ }: Props) {
-  const { name, setName } = useAppContext();
+  const { name, setName, profile, setProfile } = useAppContext();
+
+  const [value, setValue] = useState(1);
+
+  const onChange = (e: RadioChangeEvent) => {
+    setValue(e.target.value);
+  };
+
   const handler = (values: any) => {
     setName(values.username);
+    var gender: "0" | "1" | 0 | 1 = values.profile
+    var link = profile_images[gender][Math.floor(Math.random() * profile_images[gender].length)];
+    setProfile(link)
   };
 
   const onFinishFailed = () => {
@@ -55,6 +66,21 @@ export default function NameInput({ }: Props) {
           ]}
         >
           <Input placeholder="Enter your name" />
+        </Form.Item>
+        <Form.Item
+          label="Your Gender"
+          name="profile"
+          rules={[
+            {
+              required: true,
+              message: "Please choose your gender!",
+            },
+          ]}
+        >
+          <Radio.Group onChange={onChange} value={value}>
+            <Radio value={0}>Male</Radio>
+            <Radio value={1}>Female</Radio>
+          </Radio.Group>
         </Form.Item>
         <Form.Item
           wrapperCol={{

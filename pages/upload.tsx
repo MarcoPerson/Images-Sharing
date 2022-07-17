@@ -1,10 +1,5 @@
-import type { GetStaticProps } from 'next'
 import styles from '../styles/Home.module.css'
 import "antd/dist/antd.css";
-
-
-import { ImageType } from '../interfaces'
-import { allImagesData } from '../utils/data'
 
 import NameInput from '../components/NameInput/NameInput'
 import Layout from '../components/Layout/Layout'

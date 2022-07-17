@@ -1,15 +1,17 @@
 export type ImageType = {
-  id: number;
+  _id: string;
   name: string;
   public_url: string;
   username: string;
+  profile_image: string;
   date: string;
 };
 
 export type CommentType = {
-  id: number;
-  image_id: number;
+  _id: string;
+  image_id: string;
   username: string;
   comment: string;
+  profile_image: string;
   date: string;
 };

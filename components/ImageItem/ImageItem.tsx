@@ -9,7 +9,7 @@ type Props = { data: ImageType }
 export default function ImageItem({ data }: Props) {
   return (
     <div>
-      <Link href="/image/[id]" as={`/image/${data.id}`}>
+      <Link href="/image/[id]" as={`/image/${data._id}`}>
         <a>
           <Image height="100%" preview={false} src={data.public_url} alt={data.name}></Image>
         </a>

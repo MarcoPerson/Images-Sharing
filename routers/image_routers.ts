@@ -26,7 +26,7 @@ export const getImageRoute = async (
   try {
     const { id } = req.query;
     const image = await getImage(id);
-    res.json({ data: image });
+    res.json({ data: image[0] });
   } catch (error) {
     res
       .status(400)

@@ -13,7 +13,7 @@ type Props = {
 
 export default function ImageView({ data, comments }: Props) {
   return (
-    <Layout title={`Image : ${data.id} - ${data.name}`}>
+    <Layout title={`Image : ${data._id} - ${data.name}`}>
       <ImageDetail data={data} comments={comments} />
     </Layout>
   );
@@ -31,19 +31,21 @@ export default function ImageView({ data, comments }: Props) {
 // };
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  let id: number = 0;
-  let defaultImage: ImageType = { id: NaN, name: "", public_url: "", username: "", date: "" };
+
+  const env = process.env.NODE_ENV === "production"
+  const pre_link = env ? "https://images-sharing.vercel.app/" : "http://localhost:3000/"
+
+  let id: string = "";
   if (params && params.id && typeof params.id === "string") {
-    id = parseInt(params.id);
+    id = params.id;
   }
 
-  const dataFetch = await fetch("https://images-sharing.vercel.app/api/get");
+  const dataFetch = await fetch(pre_link + "api/images/" + id);
   var itemsJSon = await dataFetch.json();
-  const items: ImageType[] = itemsJSon.data;
+  console.log("PROCESS -- ", process.env.NODE_ENV)
+  const data: ImageType = itemsJSon.data;
 
-  const data: ImageType = items.find((item) => item.id == id) || defaultImage;
-
-  const commentFetch = await fetch("https://images-sharing.vercel.app/api/commentsGet");
+  const commentFetch = await fetch(pre_link + "api/comments/" + id);
   itemsJSon = await commentFetch.json();
   const comments: CommentType[] = itemsJSon.data;
   return { props: { data, comments } };

@@ -8,17 +8,17 @@ const { TextArea } = Input;
 type Props = { data: ImageType; comments: CommentType[] };
 
 export default function Comments({ data, comments }: Props) {
-  const { name, setName } = useAppContext();
+  const { name, profile } = useAppContext();
   const [form] = Form.useForm()
   const [commentsChanges, setCommentsChanges] = useState(comments)
 
-  const id = data.id;
-  const thisImageComments = commentsChanges.filter((item) => item.image_id == id);
+  const env = process.env.NODE_ENV === "production"
+  const pre_link = env ? "https://images-sharing.vercel.app/" : "http://localhost:3000/"
 
-  const datas = thisImageComments.map((item) => ({
+  const datas = commentsChanges.map((item) => ({
     actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: item.username,
-    avatar: "https://joeschmoe.io/api/v1/random",
+    avatar: item.profile_image,
     content: <p>{item.comment}</p>,
     datetime: (
       <Tooltip title={moment(item.date).format('YYYY-MM-DD HH:mm:ss')}>
@@ -29,17 +29,17 @@ export default function Comments({ data, comments }: Props) {
 
   const onFinish = async (values: any) => {
     const comment = values.comment;
-    const commentData: CommentType = {
-      id: 0,
-      image_id: data.id,
+    const commentData = {
+      image_id: data._id,
       username: name,
       comment: comment,
+      profile_image: profile,
       date: moment().toString(),
     };
 
     let commentJSON = JSON.stringify(commentData);
 
-    const id = await fetch("https://images-sharing.vercel.app/api/commentsAdd", {
+    const id = await fetch(pre_link + "api/comments/" + data._id, {
       method: "POST",
       body: commentJSON,
       headers: {
@@ -50,7 +50,7 @@ export default function Comments({ data, comments }: Props) {
     form.resetFields()
     message.success(`Thanks ${name}, for your comment`);
 
-    const commentFetch = await fetch("https://images-sharing.vercel.app/api/commentsGet");
+    const commentFetch = await fetch(pre_link + "api/comments/" + data._id);
     const itemsJSon = await commentFetch.json();
 
     setCommentsChanges(itemsJSon.data);

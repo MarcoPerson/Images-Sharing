@@ -10,7 +10,7 @@ type Props = {
   selected?: string
 };
 
-const Layout = ({ children, title = "This is the default title", selected}: Props) => (
+const Layout = ({ children, title = "This is the default title", selected }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
