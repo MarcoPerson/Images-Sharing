@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Input, Upload, message } from "antd";
 import type { UploadProps } from "antd";
 import moment from 'moment'
@@ -21,11 +21,13 @@ const props: UploadProps = {
 export default function ImageUpload({ }: Props) {
   const [form] = Form.useForm()
   const { name, profile } = useAppContext()
+  const [uploading, setUploading] = useState(false)
 
   const env = process.env.NODE_ENV === "production"
   const pre_link = env ? "https://images-sharing.vercel.app/" : "http://localhost:3000/"
 
   const onFinish = async (values: any) => {
+    setUploading(true)
     let file = new File(
       [values.upload.fileList[0].originFileObj],
       values.picname
@@ -49,6 +51,7 @@ export default function ImageUpload({ }: Props) {
 
     form.resetFields()
     message.success(`${values.picname} file uploaded successfully`);
+    setUploading(false)
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -108,7 +111,7 @@ export default function ImageUpload({ }: Props) {
           span: 16,
         }}
       >
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" disabled={uploading}>
           Submit
         </Button>
       </Form.Item>
