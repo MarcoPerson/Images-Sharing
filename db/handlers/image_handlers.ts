@@ -1,7 +1,7 @@
 import { ImageModel } from "../models/image_model";
 
 const getAllImages = async () => {
-  const images = await ImageModel.find({});
+  const images = await ImageModel.find({}, null, { sort: "-date" });
   return images;
 };
 

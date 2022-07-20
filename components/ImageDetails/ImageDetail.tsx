@@ -4,6 +4,7 @@ import { Image, Row, Col, Descriptions } from "antd";
 
 import { ImageType, CommentType } from "../../interfaces";
 import Comments from "../Comments/Comments";
+import moment from "moment";
 
 type Props = {
   data: ImageType;
@@ -20,7 +21,7 @@ export default function ImageDetail({ data, comments }: Props) {
         <Col xs={24} sm={24} md={7}>
           <Descriptions column={1} bordered={true} title={data.name}>
             <Descriptions.Item labelStyle={{ fontSize: "10px" }} contentStyle={{ fontSize: "15px", fontWeight: "bolder" }} label="Upload By">{data.username ? data.username : "Admin Marc"}</Descriptions.Item>
-            <Descriptions.Item labelStyle={{ fontSize: "10px" }} contentStyle={{ fontSize: "8px" }} label="Upload Date">{data.date ? data.date : "Thu Jun 16 2022 15:00:00 GMT+0200"}</Descriptions.Item>
+            <Descriptions.Item labelStyle={{ fontSize: "10px" }} contentStyle={{ fontSize: "8px" }} label="Upload Date">{data.date ? moment(data.date).format("dddd, MMMM Do YYYY, h:mm:ss a") : "Thu Jun 16 2022 15:00:00 GMT+0200"}</Descriptions.Item>
           </Descriptions>
         </Col>
       </Row>
